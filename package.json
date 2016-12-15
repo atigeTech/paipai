@@ -1,0 +1,29 @@
+{
+  "name": "paipai",
+  "version": "1.0.0",
+  "description": "羽山拍牌",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atigeTech/paipai.git"
+  },
+  "keywords": [],
+  "author": "Jun Shen <redwolf85911@gmail.com> (https://hatelove85911.github.io/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atigeTech/paipai/issues"
+  },
+  "homepage": "https://github.com/atigeTech/paipai#readme",
+  "devDependencies": {
+    "gh-pages-deploy-sh": "^1.2.11",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-htmlmin": "^2.0.0",
+    "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-uncss": "^0.6.1"
+  }
+}
