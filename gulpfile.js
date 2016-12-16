@@ -35,3 +35,21 @@ gulp.task('images', function(){
 //   .pipe(inlinehtmlimg('images'))
 //   .pipe(gulp.dest('dist'))
 // })
+//
+//
+
+
+
+var del = require('del');
+gulp.task('clean:dist', function() {
+  return del.sync('dist');
+})
+
+
+gulp.task('fonts', function() {
+  return gulp.src('assets/fonts/**/*')
+  .pipe(gulp.dest('dist/fonts'))
+})
+
+
+
