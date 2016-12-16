@@ -8,6 +8,8 @@ gulp.task('default', function() {
   // place code for your default task here
 });
 
+// image use ref
+var inlinehtmlimg = require('gulp-inline-image-html');
 gulp.task('useref', function(){
   return gulp.src('./*.html')
     .pipe(useref())
@@ -15,5 +17,21 @@ gulp.task('useref', function(){
     .pipe(gulpIf('*.js', uglify()))
     // Minifies only if it's a CSS file
     .pipe(gulpIf('*.css', cssnano()))
+    .pipe(gulpIf('*.html', inlinehtmlimg()))
     .pipe(gulp.dest('dist'))
 });
+
+
+// image related task
+var imagemin = require('gulp-imagemin');
+gulp.task('images', function(){
+  return gulp.src('images/**/*.+(png|jpg|gif|svg)')
+  .pipe(imagemin())
+  .pipe(gulp.dest('dist/images'))
+});
+
+// gulp.task('imagesinlinehtml', function () {
+//   return gulp.src('./*.html')
+//   .pipe(inlinehtmlimg('images'))
+//   .pipe(gulp.dest('dist'))
+// })
