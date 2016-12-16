@@ -18,12 +18,5 @@
   },
   "homepage": "https://github.com/atigeTech/paipai#readme",
   "devDependencies": {
-    "gh-pages-deploy-sh": "^1.2.11",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-cssmin": "^1.0.2",
-    "grunt-contrib-htmlmin": "^2.0.0",
-    "grunt-contrib-imagemin": "^1.0.1",
-    "grunt-contrib-uglify": "^2.0.0",
-    "grunt-uncss": "^0.6.1"
   }
 }
