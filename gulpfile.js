@@ -23,12 +23,42 @@ gulp.task('useref', function(){
 
 
 // image related task
+var merge = require('merge-stream');
+var imageResize = require('gulp-image-resize');
 var imagemin = require('gulp-imagemin');
-gulp.task('images', function(){
-  return gulp.src('images/**/*.+(png|jpg|gif|svg)')
-  .pipe(imagemin())
-  .pipe(gulp.dest('dist/images'))
-});
+
+gulp.task('image', function () {
+  // generate small and medium images
+  var smallImages = gulp.src('images/**/*.+(png|jpg|gif|svg)')
+    .pipe(imageResize({
+      width: '40%',
+      height: '40%',
+      imageMagick: true
+    }))
+    .pipe(imagemin())
+    .pipe(gulp.dest('dist/images/small'))
+
+  var mediumImages = gulp.src('images/**/*.+(png|jpg|gif|svg)')
+    .pipe(imageResize({
+      width: '80%',
+      height: '80%',
+      imageMagick: true
+    }))
+    .pipe(imagemin())
+    .pipe(gulp.dest('dist/images/medium'))
+
+  // minimize all the image size
+  var originalImages = gulp.src('images/**/*.+(png|jpg|gif|svg)')
+    .pipe(imagemin())
+
+  return merge(smallImages, mediumImages, originalImages)
+})
+
+// gulp.task('images', function(){
+//   return gulp.src('images/**/*.+(png|jpg|gif|svg)')
+//   .pipe(imagemin())
+//   .pipe(gulp.dest('dist/images'))
+// });
 
 // gulp.task('imagesinlinehtml', function () {
 //   return gulp.src('./*.html')
@@ -50,6 +80,5 @@ gulp.task('fonts', function() {
   return gulp.src('assets/fonts/**/*')
   .pipe(gulp.dest('dist/fonts'))
 })
-
 
 
