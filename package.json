@@ -19,6 +19,7 @@
   "homepage": "https://github.com/atigeTech/paipai#readme",
   "devDependencies": {
     "del": "^2.2.2",
+    "gm": "^1.23.0",
     "gulp": "^3.9.1",
     "gulp-cache": "^0.4.5",
     "gulp-cli": "^1.2.2",
