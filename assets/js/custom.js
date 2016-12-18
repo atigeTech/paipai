@@ -1,0 +1,3 @@
+$("#history").glide({
+    type: "carousel"
+});
