@@ -3,21 +3,30 @@ var useref = require('gulp-useref');
 var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
 var cssnano = require('gulp-cssnano');
+var run = require('run-sequence');
 
-gulp.task('default', function() {
-  // place code for your default task here
-});
+gulp.task('default', function (cb) {
+  run ('clean:dist', 'html', 'image', 'copy')
+})
 
-// image use ref
+// clean
+var del = require('del');
+gulp.task('clean:dist', function() {
+  return del.sync('dist');
+})
+
+// html related task
 var inlinehtmlimg = require('gulp-inline-image-html');
-gulp.task('useref', function(){
+var htmlmin = require('gulp-htmlmin');
+gulp.task('html', function(){
   return gulp.src('./*.html')
     .pipe(useref())
     // Minifies only if it's a JavaScript file
     .pipe(gulpIf('*.js', uglify()))
     // Minifies only if it's a CSS file
     .pipe(gulpIf('*.css', cssnano()))
-    .pipe(gulpIf('*.html', inlinehtmlimg()))
+    .pipe(gulpIf('*.html', htmlmin({collapseWhitespace: true})))
+    // .pipe(gulpIf('*.html', inlinehtmlimg()))
     .pipe(gulp.dest('dist'))
 });
 
@@ -54,31 +63,8 @@ gulp.task('image', function () {
   return merge(smallImages, mediumImages, originalImages)
 })
 
-// gulp.task('images', function(){
-//   return gulp.src('images/**/*.+(png|jpg|gif|svg)')
-//   .pipe(imagemin())
-//   .pipe(gulp.dest('dist/images'))
-// });
-
-// gulp.task('imagesinlinehtml', function () {
-//   return gulp.src('./*.html')
-//   .pipe(inlinehtmlimg('images'))
-//   .pipe(gulp.dest('dist'))
-// })
-//
-//
-
-
-
-var del = require('del');
-gulp.task('clean:dist', function() {
-  return del.sync('dist');
+// copy rest files to dest
+gulp.task('copy', function() {
+  return gulp.src('assets/**/*')
+    .pipe(gulp.dest('dist/assets'))
 })
-
-
-gulp.task('fonts', function() {
-  return gulp.src('assets/fonts/**/*')
-  .pipe(gulp.dest('dist/fonts'))
-})
-
-
