@@ -59,6 +59,7 @@ gulp.task('image', function () {
   // minimize all the image size
   var originalImages = gulp.src('images/**/*.+(png|jpg|gif|svg)')
     .pipe(imagemin())
+    .pipe(gulp.dest('dist/images'))
 
   return merge(smallImages, mediumImages, originalImages)
 })
