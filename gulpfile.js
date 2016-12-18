@@ -42,7 +42,7 @@ gulp.task('image', function () {
 
 
     // generate small and medium images
-    var smallImages = gulp.src('images/**/*.+(png|jpg|gif|svg|jpeg)')
+    var smallImages = gulp.src(['images/**/*.+(png|jpg|gif|svg|jpeg)', '!images/loading.gif'])
         .pipe(gulpIf('hupai.jpg', imageResize({
             width: '30%',
             height: '30%'
@@ -53,10 +53,9 @@ gulp.task('image', function () {
         .pipe(gulpIf('*.jpeg', imageResize({
             format: 'jpg'
         })))
-        .pipe(imagemin())
         .pipe(gulp.dest('dist/images/small'))
 
-    var mediumImages = gulp.src('images/**/*.+(png|jpg|gif|svg|jpeg)')
+    var mediumImages = gulp.src(['images/**/*.+(png|jpg|gif|svg|jpeg)', '!images/loading.gif'])
         .pipe(imageResize({
             width: '80%',
             height: '80%'
@@ -64,18 +63,21 @@ gulp.task('image', function () {
         .pipe(gulpIf('*.jpeg', imageResize({
             format: 'jpg'
         })))
-        .pipe(imagemin())
         .pipe(gulp.dest('dist/images/medium'))
 
     // minimize all the image size
-    var originalImages = gulp.src('images/**/*.+(png|jpg|gif|svg|jpeg)')
+    var originalImages = gulp.src(['images/**/*.+(png|jpg|gif|svg|jpeg)', '!images/loading.gif'])
         .pipe(gulpIf('*.jpeg', imageResize({
             format: 'jpg'
         })))
-        .pipe(imagemin())
         .pipe(gulp.dest('dist/images'))
 
-    var combineAll = merge(smallImages, mediumImages, originalImages)
+    var loadingGif = gulp.src('images/loading.gif')
+        .pipe(gulp.dest('dist/images'))
+        .pipe(gulp.dest('dist/images/small'))
+        .pipe(gulp.dest('dist/images/medium'))
+
+    var combineAll = merge(smallImages, mediumImages, originalImages, loadingGif)
 
     return combineAll
 })

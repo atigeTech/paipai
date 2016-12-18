@@ -21,141 +21,24 @@
         <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 
         <style type="text/css" media="screen">
-          /* Custom, iPhone Retina */ 
-          /* Extra Small Devices, Phones */ 
-          @media only screen and (min-width : 320px) {
-            .topBigImage {
-              content: url('images/small/hupai.jpg')
-            }
-            .spotlightImage1 img {
-              content: url('images/small/pic01.jpg')
-            }
-            .spotlightImage2 img {
-              content: url('images/small/team1.jpg')
-            }
-            .spotlightImage3 img {
-              content: url('images/small/pic03.jpg')
-            }
-            .historyImage1{
-              content: url("images/small/2016_12/1.jpg")
-            } 
-            .historyImage2{
-              content: url("images/small/2016_12/2.jpg")
-            } 
-            .historyImage3{
-              content: url("images/small/2016_11/1.jpg")
-            }
-            .historyImage4{
-              content: url("images/small/2016_11/2.jpg")
-            }
-            .historyImage5{
-              content: url("images/small/2016_11/3.jpg")
-            }
-            .historyImage6{
-              content: url("images/small/2016_11/4.jpg")
-            }
-            .historyImage7{
-              content: url("images/small/2016_11/5.jpg")
-            }
-            .historyImage8{
-              content: url("images/small/2016_09/1.jpg")
-            }
-          }
-          
-          /* Small Devices, Tablets */
-          @media only screen and (min-width : 768px) {
-            .topBigImage {
-              content: url('images/medium/hupai.jpg')
-            }
-            .spotlightImage1 img {
-              content: url('images/medium/pic01.jpg')
-            }
-            .spotlightImage2 img {
-              content: url('images/medium/team1.jpg')
-            }
-            .spotlightImage3 img {
-              content: url('images/medium/pic03.jpg')
-            }
-            .historyImage1{
-              content: url("images/medium/2016_12/1.jpg")
-            } 
-            .historyImage2{
-              content: url("images/medium/2016_12/2.jpg")
-            } 
-            .historyImage3{
-              content: url("images/medium/2016_11/1.jpg")
-            }
-            .historyImage4{
-              content: url("images/medium/2016_11/2.jpg")
-            }
-            .historyImage5{
-              content: url("images/medium/2016_11/3.jpg")
-            }
-            .historyImage6{
-              content: url("images/medium/2016_11/4.jpg")
-            }
-            .historyImage7{
-              content: url("images/medium/2016_11/5.jpg")
-            }
-            .historyImage8{
-              content: url("images/medium/2016_09/1.jpg")
-            }
-
-          }
-
-          /* Medium Devices, Desktops */
-          @media only screen and (min-width : 992px) {
-            .topBigImage {
-              content: url('images/hupai.jpg')
-            }
-            .spotlightImage1 img {
-              content: url('images/pic01.jpg')
-            }
-            .spotlightImage2 img {
-              content: url('images/team1.jpg')
-            }
-            .spotlightImage3 img {
-              content: url('images/pic03.jpg')
-            }
-            .historyImage1{
-              content: url("images/2016_12/1.jpg")
-            } 
-            .historyImage2{
-              content: url("images/2016_12/2.jpg")
-            } 
-            .historyImage3{
-              content: url("images/2016_11/1.jpg")
-            }
-            .historyImage4{
-              content: url("images/2016_11/2.jpg")
-            }
-            .historyImage5{
-              content: url("images/2016_11/3.jpg")
-            }
-            .historyImage6{
-              content: url("images/2016_11/4.jpg")
-            }
-            .historyImage7{
-              content: url("images/2016_11/5.jpg")
-            }
-            .historyImage8{
-              content: url("images/2016_09/1.jpg")
-            }
-          }
-
           #three .inner {
             width: 100%
-          }
-          .history {
-            list-style-type: none;
-          }
-          .history li{
-            display: inline;
           }
           #two .factors {
             text-align: left;
           }
         </style>
+        <!--build:js assets/js/main.min.js -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/jquery.unveil.js"></script>
+        <script src="assets/js/skel.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/glide.min.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/custom.js"></script>
+        <!-- endbuild -->
     </head>
     <body class="landing">
 
@@ -171,7 +54,7 @@
                     <section id="banner">
                         <div class="inner">
                             <div>
-                              <img class="img-responsive topBigImage" alt=""/>
+                              <img src="images/loading.gif" class="img-responsive lazy" data-src="images/hupai.jpg" alt=""/>
                             </div>
                             <h2>拍牌，找阿提哥</h2>
                             <p>开自己的高架，让傻逼们堵去吧</p>
@@ -201,7 +84,7 @@
                 <!-- Two -->
                     <section id="two" class="wrapper alt style2">
                         <section class="spotlight spotlightImage1">
-                            <div class="image"><img alt="" /></div><div class="content">
+                            <div class="image"><img src="images/loading.gif" class="lazy" alt="" /></div><div class="content">
                                 <h2>高中标率</h2>
                                 <ul class="factors">
                                   <li>精心制定的策略: 拍牌是几十万大军的博弈</li>
@@ -213,13 +96,13 @@
                             </div>
                         </section>
                         <section class="spotlight spotlightImage2">
-                            <div class="image"><img alt="" /></div><div class="content">
+                            <div class="image"><img src="images/loading.gif" class="lazy"  data-src="images/team1.jpg" alt="" /></div><div class="content">
                                 <h2>牛逼的团队</h2>
                                 <p>我们是专业的软件工程师，我们精通拍牌过程中的每一个环节。正所谓内行人看门道，外行人看热闹。杀鸡用牛刀，绰绰有余!</p>
                             </div>
                         </section>
                         <section class="spotlight spotlightImage3">
-                            <div class="image"><img alt="" /></div><div class="content">
+                            <div class="image"><img src="images/loading.gif" class="lazy"  alt="" /></div><div class="content">
                                 <h2>价廉物美</h2>
                                 <p>相较其他代拍服务，我们的价格是极低的，但是我们的技术是极高的。绝对的价廉物美! 您不想早日给您的爱车一个体面的名分吗？ 您不想早日避开拥堵吗？ 赶紧的! 还不信?? 有种继续往下看!! </p>
                             </div>
@@ -243,9 +126,9 @@
 
                                 <div class="glide__wrapper">
                                     <ul class="glide__track">
-                                        <li class="glide__slide"><img class="img-responsive historyImage1" alt=""></li>
-                                        <li class="glide__slide"><img class="img-responsive historyImage2" alt=""></li>
-                                        <li class="glide__slide"><img class="img-responsive historyImage3" alt=""></li>
+                                        <li class="glide__slide"><img src="images/loading.gif" class="img-responsive historyImage1 lazy" alt=""></li>
+                                        <li class="glide__slide"><img src="images/loading.gif" class="img-responsive historyImage2 lazy" alt=""></li>
+                                        <li class="glide__slide"><img src="images/loading.gif" class="img-responsive historyImage3 lazy" alt=""></li>
                                     </ul>
                                 </div>
 
@@ -275,16 +158,6 @@
 
         <!-- Scripts -->
 
-            <!--build:js assets/js/main.min.js -->
-            <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/js/jquery.scrollex.min.js"></script>
-            <script src="assets/js/jquery.scrolly.min.js"></script>
-            <script src="assets/js/skel.min.js"></script>
-            <script src="assets/js/util.js"></script>
-            <script src="assets/js/glide.min.js"></script>
-            <script src="assets/js/main.js"></script>
-            <script src="assets/js/custom.js"></script>
-            <!-- endbuild -->
 
             <!-- mylivechat -->
             <!-- <script type="text/javascript" async="async" defer="defer" data-cfasync="false" src="https://mylivechat.com/chatinline.aspx?hccid=99064077"></script> -->
